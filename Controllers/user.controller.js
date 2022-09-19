@@ -1,5 +1,6 @@
 var User=require('../models/user.model');
 var bcrypt=require('bcrypt-nodejs');
+var jwt=require("../services/jwt");
 
 function register(req, res) {
 
