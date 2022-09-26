@@ -7,7 +7,7 @@ const autorControlador = require('../Controllers/autor.controller');
 api.get('/autores', autorControlador.listaAutor);
 
 
-api.get('/autor/:id', autorControlador.autor);
+api.put('/autor/:id', autorControlador.autor);
 
 
 api.post('/autor', autorControlador.agregarautor);

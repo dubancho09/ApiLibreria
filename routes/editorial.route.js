@@ -7,7 +7,7 @@ const editorialControlador = require('../Controllers/editorial.controller');
 api.get('/editoriales', editorialControlador.listaEditorial);
 
 
-api.get('/autor/:id', editorialControlador.editorial);
+api.put('/autor/:id', editorialControlador.editorial);
 
 
 api.post('/autor', editorialControlador.agregareditorial);

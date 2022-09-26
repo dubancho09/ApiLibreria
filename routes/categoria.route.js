@@ -7,7 +7,7 @@ const categoriaControlador = require('../Controllers/categoria.controller');
 api.get('/categorias', categoriaControlador.listarCategorias);
 
 //Ruta Categorias ID
-api.get('/categoria/:id', categoriaControlador.categoria);
+api.put('/categoria/:id', categoriaControlador.categoria);
 
 //Ruta Nueva Categoria
 api.post('/categoria', categoriaControlador.agregarCategoria);
