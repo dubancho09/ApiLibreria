@@ -70,5 +70,5 @@ function updateUser(req, res){
 
 
 module.exports={
-    register, login, prueba, updateUser
+    register, login, updateUser
 }
