@@ -45,7 +45,7 @@ function modificarAutor(req,res){
     
     const params = req.body;
 
-    autor.autorCategoria = params.nombreAutor;
+    autor.nombreAutor = params.nombreAutor;
 
     CategoriaAutor.findOneAndUpdate({_id})
 }

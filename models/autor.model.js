@@ -7,6 +7,6 @@ var autorSchema = new Schema({
         type: String,
         Required: 'El campo nombreCategoria es obligatorio'
     }
-},{collection:'Categoria'});
+},{collection:'Autor'});
 
 module.exports = mongoose.model('autor', autorSchema);
