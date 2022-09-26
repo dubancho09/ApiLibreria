@@ -7,6 +7,7 @@ var app= express();
 //archivos de rutas rutas 
 var userRoute=require("./routes/user.route");
 var categoriaRoute = require("./routes/categoria.route");
+var autorRoute = require("./routes/autor.route");
 //middlewares se ejecuta antes de la acción de un controlador
 
 app.use(bodyParser.urlencoded({extended:false}));
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 //rutas
 app.use("/api", userRoute);
 app.use("/api", categoriaRoute);
+app.use("/api", autorRoute);
 
 
 //Exportar
