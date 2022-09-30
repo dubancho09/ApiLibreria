@@ -9,6 +9,7 @@ var userRoute=require("./routes/user.route");
 var categoriaRoute = require("./routes/categoria.route");
 var autorRoute = require("./routes/autor.route");
 var editorialRoute = require("./routes/editorial.route");
+var direccionRoute = require("./routes/direccion.route");
 //middlewares se ejecuta antes de la acción de un controlador
 
 app.use(bodyParser.urlencoded({extended:false}));
@@ -29,6 +30,7 @@ app.use("/api", userRoute);
 app.use("/api", categoriaRoute);
 app.use("/api", autorRoute);
 app.use("/api", editorialRoute);
+app.use("/api", direccionRoute);
 
 
 //Exportar
