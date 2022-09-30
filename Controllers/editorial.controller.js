@@ -1,58 +1,34 @@
-const { response } = require('express');
-const CategoriaModelo =  require('../models/editorial.model');
+var Editorial=require('../models/editorial.model');
 
+function insertEditorial(req, res){
 
-function listaEditorial(req, res) {
-    editorialModelo.find({}, (err, cat)=>{
-        if(err) return res.status(404).send(err);
-        res.send({cat});
+    var params=req.body;
+    var editorial=new Editorial();
+
+    editorial.name=params.name;
+
+    editorial.save((err, editorial)=>{
+        if(err) return res.status(500).send({message:"Error en el servidor"+err})
+        if(!editorial)return res.status(404).send({message:"No se encuentra la editorial"});
+        if(editorial)return res.status(200).send({editorial:editorial});
     });
 }
 
+function updateEditorial(req, res){
+    let id = req.params.id;
+    let params = req.body;
 
-function editorial(req, res){
-    id = req.params.id;
-    editorialModelo.findById(id, (err, cat)=>{
-        if(err) res.status(404).send(err);
-        res.send({cat});
-    })
-}
-
-
-function agregareditorial(req, res){
-    const params = req.body;
-    const editorial = new editorialModelo();
-
-
-    let nombreEditorial = params.nombreEditorial;
-    if(nombreEditorial == ""){
-        return res.status(404).send("El campo es obligatorio");
+    if(req.editorial.sub != id){
+        return res.status(404).send({message: 'Usted no esta autorizado'});
     }
 
-    autor.nombreEditorial = nombreEditorial;
-
-    autor.save((err, cat)=>{
-        if(err) res.send(err);
-        res.send({cat});
+    editorial.findByIdAndUpdate(id, params, (err, editorialUpdate)=>{
+        if(err) return res.status(500).send({message: "error en el servidor" + err});
+        if(!editorialUpdate) return res.status(404).send({message: "no se pudo actualizar la editorial"});
+        if(editorialUpdate)return res.status(200).send({editorial: editorialUpdate}); 
     });
-
-    
 }
-
-
-function modificarEditorial(req,res){
-    let editorial = new editorialModelo();
-    
-    const params = req.body;
-
-    editorial.nombreEditorial = params.nombreEditorial;
-
-    CategoriaEditorial.findOneAndUpdate({_id})
-}
-
-module.exports = {
-    agregareditorial,
-    listaEditorial,
-    editorial,
-    modificarEditorial
+module.exports={
+    insertEditorial,
+    updateEditorial
 }

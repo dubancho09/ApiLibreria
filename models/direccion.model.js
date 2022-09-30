@@ -1,12 +1,9 @@
-'use strict'
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var direccionSchema = new Schema({
-    direccion:{
-        type: String,
-        Required: 'El campo Direccion es obligatorio'
-    }
-},{collection:'direccion'});
+    direccion:Schema.Types.String,
 
-module.exports = mongoose.model('direccion', direccionSchema);
+},{collection:'Direcciones'});
+
+module.exports=mongoose.model('direccion', direccionSchema);

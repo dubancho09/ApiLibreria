@@ -1,15 +1,13 @@
-const express = require('express');
-const api = express.Router();
-const categoriaControlador = require('../Controllers/categoria.controller');
+'use strict'
 
+var express = require('express');
 
-//Ruta listar Todas
-api.get('/categorias', categoriaControlador.listarCategorias);
+var api = express.Router();
 
-//Ruta Categorias ID
-api.put('/categoria/:id', categoriaControlador.categoria);
+var controllerCategoria = require('../controllers/categoria.controller');
 
-//Ruta Nueva Categoria
-api.post('/categoria', categoriaControlador.agregarCategoria);
+api.post('/categoria', controllerCategoria.insertCategoria);
 
-module.exports=api;
+api.put('/updateCategoria/:id', controllerCategoria.updateCategoria);
+
+module.exports = api;

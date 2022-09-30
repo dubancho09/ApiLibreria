@@ -1,15 +1,13 @@
-const express = require('express');
-const api = express.Router();
-const direccionControlador = require('../Controllers/direccion.controller');
+'use strict'
 
+var express = require('express');
 
-//Ruta listar Todas
-api.get('/direcciones', direccionControlador.listarDirecciones);
+var api = express.Router();
 
-//Ruta Categorias ID
-api.put('/direccion/:id', direccionControlador.direccion);
+var controllerDireccion = require('../controllers/direccion.controller');
 
-//Ruta Nueva Categoria
-api.post('/direccion', direccionControlador.agregarDireccion);
+api.post('/direccion', controllerDireccion.insertDireccion);
 
-module.exports=api;
+api.put('/updateDireccion/:id', controllerDireccion.updateDireccion);
+
+module.exports = api;

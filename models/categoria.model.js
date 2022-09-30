@@ -1,13 +1,10 @@
-//Modelo Categoria
-'use strict'
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var categoriaSchema = new Schema({
-    nombreCategoria:{
-        type: String,
-        Required: 'El campo nombreCategoria es obligatorio'
-    }
-},{collection:'Categoria'});
+    name:Schema.Types.String,
+    descripcion: Schema.Types.String,
 
-module.exports = mongoose.model('categoria', categoriaSchema);
+},{collection:'Categorias'});
+
+module.exports=mongoose.model('categoria', categoriaSchema);

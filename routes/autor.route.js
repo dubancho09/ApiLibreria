@@ -1,15 +1,13 @@
-const express = require('express');
-const api = express.Router();
-const autorControlador = require('../Controllers/autor.controller');
+'use strict'
 
+var express = require('express');
 
+var api = express.Router();
 
-api.get('/autores', autorControlador.listaAutor);
+var controllerAutor = require('../controllers/autor.controller');
 
+api.post('/autor', controllerAutor.insertAutor);
 
-api.put('/autor/:id', autorControlador.autor);
+api.put('/updateAutor/:id', controllerAutor.updateAutor);
 
-
-api.post('/autor', autorControlador.agregarautor);
-
-module.exports=api;
+module.exports = api;

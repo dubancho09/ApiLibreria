@@ -1,12 +1,9 @@
-'use strict'
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var autorSchema = new Schema({
-    nombreAutor:{
-        type: String,
-        Required: 'El campo nombreCategoria es obligatorio'
-    }
-},{collection:'Autor'});
+    name:Schema.Types.String,
 
-module.exports = mongoose.model('autor', autorSchema);
+},{collection:'Autores'});
+
+module.exports=mongoose.model('autor', autorSchema);

@@ -1,15 +1,13 @@
-const express = require('express');
-const api = express.Router();
-const editorialControlador = require('../Controllers/editorial.controller');
+'use strict'
 
+var express = require('express');
 
+var api = express.Router();
 
-api.get('/editoriales', editorialControlador.listaEditorial);
+var controllerEditorial = require('../controllers/editorial.controller');
 
+api.post('/editorial', controllerEditorial.insertEditorial);
 
-api.put('/autor/:id', editorialControlador.editorial);
+api.put('/updateEditorial/:id', controllerEditorial.updateEditorial);
 
-
-api.post('/autor', editorialControlador.agregareditorial);
-
-module.exports=api;
+module.exports = api;
