@@ -20,10 +20,6 @@ function updateDireccion(req, res){
     let id = req.params.id;
     let params = req.body;
 
-    if(req.direcccion.sub != id){
-        return res.status(404).send({message: 'Usted no esta autorizado'});
-    }
-
     direcccion.findByIdAndUpdate(id, params, (err, direccionUpdate)=>{
         if(err) return res.status(500).send({message: "error en el servidor" + err});
         if(!direccionUpdate) return res.status(404).send({message: "no se pudo actualizar la direccion"});

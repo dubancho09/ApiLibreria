@@ -19,10 +19,6 @@ function updateCategoria(req, res){
     let id = req.params.id;
     let params = req.body;
 
-    if(req.categoria.sub != id){
-        return res.status(404).send({message: 'Usted no esta autorizado'});
-    }
-
     categoria.findByIdAndUpdate(id, params, (err, categoriaUpdate)=>{
         if(err) return res.status(500).send({message: "error en el servidor" + err});
         if(!categoriaUpdate) return res.status(404).send({message: "no se pudo actualizar la categoria"});

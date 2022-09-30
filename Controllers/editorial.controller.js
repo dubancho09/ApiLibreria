@@ -18,10 +18,6 @@ function updateEditorial(req, res){
     let id = req.params.id;
     let params = req.body;
 
-    if(req.editorial.sub != id){
-        return res.status(404).send({message: 'Usted no esta autorizado'});
-    }
-
     editorial.findByIdAndUpdate(id, params, (err, editorialUpdate)=>{
         if(err) return res.status(500).send({message: "error en el servidor" + err});
         if(!editorialUpdate) return res.status(404).send({message: "no se pudo actualizar la editorial"});
