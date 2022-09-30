@@ -14,6 +14,7 @@ function register(req, res) {
     user.image='NULL';
     user.nameUser=params.nameUser;
     user.phone=params.phone;
+    user.IdDireccion=params.IdCat;
     if(params.password){
         bcrypt.hash(params.password,null,null,function(err, hash){
             user.password=hash;
