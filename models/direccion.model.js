@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var direccionSchema = new Schema({
-    direccion:Schema.Types.String,
+    name:Schema.Types.String,
 
 },{collection:'Direcciones'});
 
